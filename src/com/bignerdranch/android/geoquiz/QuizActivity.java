@@ -30,7 +30,7 @@ public class QuizActivity extends Activity {
 	};
 	private int mCurrentIndex = 0;
 	
-	private boolean mIsCheater;
+	private static boolean mIsCheater;
 	
 	private void updateQuestion() {
 		int question = mQuestionBank[mCurrentIndex].getQuestion();
