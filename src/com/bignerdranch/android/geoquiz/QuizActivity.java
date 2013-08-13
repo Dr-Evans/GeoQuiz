@@ -94,8 +94,11 @@ public class QuizActivity extends Activity {
 		mPrevButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//Modulus trick to continuously loop forward through array
-				mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
+				//Loop continuously backwards through array
+				mCurrentIndex = mCurrentIndex - 1;
+				if (mCurrentIndex < 0){
+					mCurrentIndex = mQuestionBank.length - 1;
+				}
 				mIsCheater = false;
 				updateQuestion();
 			}
@@ -105,8 +108,8 @@ public class QuizActivity extends Activity {
 		mNextButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//Modulus trick to continuously loop backward through array
-				mCurrentIndex = (((mCurrentIndex + 1) % mQuestionBank.length) + mQuestionBank.length) % mQuestionBank.length;
+				//Modulus trick to continuously loop forwards through array
+				mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
 				mIsCheater = false;
 				updateQuestion();
 			}
